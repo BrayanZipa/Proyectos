@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios For</title>
+</head>
+<body>
+    <script>
+        var menu="MENU\n\n";
+        menu+="1. Primer ejercicio\n";
+        menu+="2. Segundo ejercicio\n";
+        menu+="3. Tercer ejercicio\n";
+        menu+="4. Cuarto ejercicio\n";
+        menu+="5. Quinto ejercicio\n";
+        menu+="6. Sexto ejercicio\n";
+        menu+="7. Séptimo ejercicio\n";
+        menu+="8. Salir\n";
+        menu+="Ingrese una opcion\n\n"
+
+        var opcion = 0;
+        while(opcion != 8){
+            opcion = parseInt(prompt(menu));
+            var num = 0;
+            var i = 1;
+            switch(opcion){
+                case 1:
+                    var informe ="";
+                    var suma = 0;
+                    for(i;i<=3;i++){
+                        var base =parseFloat(prompt("Ingrese la base del triángulo "+i));
+                        var altura =parseFloat(prompt("Ingrese la altura del triángulo "+i));
+                        var superficie = (base*altura)/2;
+                        informe += "Triángulo "+i+"<br>";
+                        informe += "Base: "+base+"<br>";
+                        informe += "Altura: "+altura+"<br>";
+                        informe += "Superficie: "+superficie+"<br><br>";
+
+                        if(superficie>12){
+                            suma += 1;
+                        }
+                    }
+                    document.write(informe+"La cantidad de triángulos cuya superficie es mayor a 12 es: "+suma+"<br>");
+                    break;
+                case 2:
+                    var suma = 0;
+                    alert("Ingrese 10 numeros");
+                    for(i;i<=10;i++){
+                        num = parseFloat(prompt());
+                        if(i>5){
+                            suma += num;
+                        }       
+                    }
+                    document.write("La suma de los últimos 5 valores ingresados es: "+suma+"<br>");
+                    break;
+                case 3:
+                    for(i;i<=10;i++){
+                        document.write("5 * "+i+" = "+(5*i)+"<br>");
+                    }
+                    break;
+                case 4:
+                    num = prompt("Ingrese un numero del 1 al 10");
+                    if(num>0 && num<=10){
+                        for(i;i<=12;i++){
+                        document.write(num+" * "+i+" = "+(num*i)+"<br>");
+                        }
+                    }else{
+                        document.write("Ha ingresado un valor inválido");
+                    }   
+                    break;
+                case 5:
+                    alert("Ingrese los lados de 4 triángulos");                  
+                    var tipoTriangulo = "";
+                    var canTriangulosEqui = 0;
+                    var canTriangulosIsos = 0;
+                    var canTriangulosEsca = 0;
+                    var sumaMultiplos = 0;
+                    var menorCantidad = "";
+                    for(i;i<=4;i++){
+                        lado1 = parseFloat(prompt("Ingrese el primer lado del triángulo "+i));
+                        lado2 = parseFloat(prompt("Ingrese el primer lado del triángulo "+i));
+                        lado3 = parseFloat(prompt("Ingrese el primer lado del triángulo "+i));
+
+                        if(lado1 == lado2 && lado2 == lado3){
+                            tipoTriangulo += "El triángulo "+i+" es equilátero<br>";
+                            canTriangulosEqui += 1;
+                        }else if(lado1 == lado2 || lado1 == lado3 || lado2 == lado3){
+                            tipoTriangulo += "El triángulo "+i+" es isósceles<br>";
+                            canTriangulosIsos += 1;
+                        }else{
+                            tipoTriangulo += "El triángulo "+i+" es escaleno<br>";
+                            canTriangulosEsca += 1;
+                        }                       
+                    }
+                    if(canTriangulosEqui==canTriangulosIsos && canTriangulosEqui<canTriangulosEsca){
+                        menorCantidad = "Los triángulos de tipo equilátero y de tipo isósceles son los menos ingresados con "+canTriangulosEqui+" registros cada uno";
+                    }else if(canTriangulosIsos==canTriangulosEsca && canTriangulosIsos<canTriangulosEqui){
+                        menorCantidad = "Los triángulos de tipo isósceles y de tipo escaleno son los menos ingresados con "+canTriangulosIsos+" registros cada uno";
+                    }else if(canTriangulosEsca==canTriangulosEqui && canTriangulosEsca<canTriangulosIsos){
+                        menorCantidad = "Los triángulos de tipo escaleno y de tipo equilátero son los menos ingresados con "+canTriangulosEsca+" registros cada uno";
+                    }else if(canTriangulosEqui<canTriangulosIsos && canTriangulosEqui<canTriangulosEsca){
+                        menorCantidad = "El triángulo de tipo equilátero es el menos ingresado con "+canTriangulosEqui+" registros";
+                    }else if(canTriangulosIsos<canTriangulosEqui && canTriangulosIsos<canTriangulosEsca){
+                        menorCantidad = "El triángulo de tipo isósceles es el menos ingresado con "+canTriangulosIsos+" registros";
+                    }else{
+                        menorCantidad = "El triángulo de tipo escaleno es el menos ingresado con "+canTriangulosEsca+" registros";
+                    }
+                    document.write(tipoTriangulo+"<br>");
+                    document.write("Cantidad de triángulos equiláteros ingresados: "+canTriangulosEqui+"<br>");
+                    document.write("Cantidad de triángulos isósceles ingresados: "+canTriangulosIsos+"<br>");
+                    document.write("Cantidad de triángulos escalenos ingresados: "+canTriangulosEsca+"<br><br>");
+                    document.write(menorCantidad+"<br>");
+                    break;
+                case 6:
+                    alert("Ingrese 10 valores enteros");                  
+                    var sumaNegativos = 0;
+                    var sumaPositivos = 0;
+                    var sumaMultiplos = 0;
+                    var sumaPares = 0;
+                    for(i;i<=10;i++){
+                        num = parseInt(prompt());
+                        if(num<0){      
+                            sumaNegativos += 1;
+                        }if(num>=0){ 
+                            sumaPositivos += 1;
+                        }if(num%15==0){
+                            sumaMultiplos += 1;
+                        }if(num%2==0){                
+                            sumaPares = sumaPares + 1;
+                        }               
+                    }
+                    document.write("La cantidad de valores negativos ingresados es: "+sumaNegativos+"<br>");
+                    document.write("La cantidad de valores positivos ingresados es: "+sumaPositivos+"<br>");
+                    document.write("La cantidad de múltiplos de 15 es: "+sumaMultiplos+"<br>");
+                    document.write("El valor acumulado de los números pares es: "+sumaPares+"<br>");
+                    break;
+                case 7:
+                    var prome1 =0;
+                    var prome2 =0;
+                    var prome3 =0;
+                    var sumaMañana =0;
+                    var sumaTarde =0;
+                    var sumaNoche =0;
+                    var mayor ="";
+                    for(i;i<=22;i++){
+                        if(i<=5){
+                            sumaMañana += parseInt(prompt("Estudiantes del turno de la mañana"));
+                        }else if(i<=11){
+                            sumaTarde += parseInt(prompt("Estudiantes del turno de la tarde"));
+                        }else{
+                            sumaNoche += parseInt(prompt("Estudiantes del turno de la noche"));
+                        }
+                    }
+                    prome1 = sumaMañana/5;
+                    prome2 = sumaTarde/6;
+                    prome3 = sumaNoche/11;
+                    
+                    if(prome1==prome2 && prome2==prome3){
+                        mayor="Todos los promedios son iguales, no hay un promedio mayor"
+                    }else{
+                        if(prome1==prome2 && prome1>prome3){
+                            mayor="Los estudiantes del turno de la mañana y del turno de la tarde tienen el mayor promedio de edad";
+                        }else if(prome2==prome3 && prome2>prome1){
+                            mayor="Los estudiantes del turno de la tarde y del turno de la noche tienen el mayor promedio de edad";
+                        }else if(prome3==prome1 && prome3>prome2){
+                            mayor="Los estudiantes del turno de la noche y del turno de la mañana tienen el mayor promedio de edad";
+                        }else if(prome1>prome2 && prome1>prome3){
+                            mayor="Los estudiantes del turno de la mañana tienen el mayor promedio de edad";
+                        }else if(prome2>prome1 && prome2>prome3){
+                            mayor="Los estudiantes del turno de la tarde tienen el mayor promedio de edad";
+                        }else{
+                            mayor="Los estudiantes del turno de la noche tienen el mayor promedio de edad";
+                        }
+                    }
+                    document.write("Promedio de edad de los estudiantes de la mañana: "+prome1+"<br>");
+                    document.write("Promedio de edad de los estudiantes de la tarde: "+prome2+"<br>");
+                    document.write("Promedio de edad de los estudiantes de la noche: "+prome3+"<br>");
+                    document.write(mayor+"<br>");
+                    break;
+                case 8:
+                    document.write("Ha seleccionado salir");
+                    break;
+                default:
+                    document.write("Ha seleccionado un valor invalido");
+                    break;
+            }
+            document.write("<br><br>");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+body{
+    background-image: url(https://fondosmil.com/fondo/25803.jpg);
+}
+
+/*Thead*/
+
+div.tabla2 thead.tablac{
+    background-color: rgba(0, 4, 216, 0.493);
+    border-bottom: solid 5px rgb(21, 21, 173);
+    color: rgb(15, 15, 15);
+    text-align: center;
+}
+thead{
+    background-color: rgb(255, 255, 255);
+    
+}
+thead.t1 tr {
+    height: 40px;
+}
+.t1 td{
+    width: 720px;
+}
+
+/*tables*/
+
+div.tabla1{
+    position:relative;
+    bottom: 10px;
+    left: 30px;
+    margin: 160px;
+    background-color: rgb(255, 255, 255);  
+    width: 937px;
+}
+
+div.tabla2{
+    left: 30px;
+    margin: 190px;
+    width: 927px;
+    background-color: white;
+}
+div.tabla2 td{
+    padding: 5px;
+    width: 120px;
+    border-radius: 2px;
+    
+}
+
+/*Tr and Td*/
+
+tr:nth-child(even){
+    background-color: rgba(45, 89, 233, 0.432);
+
+}
+tr:hover td{
+    background-color: rgb(168, 175, 168);
+}
+
+/*Labels*/
+
+label.salex{
+    position: relative;
+    bottom: -90px;
+    right: 170px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-family: cursive;
+    font-size: 30px;
+}
+label.l2{
+    position: relative;
+    bottom: -150px;
+    right: -220px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-family: cursive;
+    font-size: 30px;
+}
+label.l1{
+    position: relative;
+    bottom: -630px;
+    right: -550px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-family: cursive;
+    font-size: 30px;
+}
+
+/*Image*/
+
+img{
+    width: 200px;
+    height: 180px;
+    position: relative;
+    bottom: -60px;
+    left: 10px;
+}
+
+h2{
+    position: relative;
+    left: 200px;
+    bottom: 70px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-family: cursive;
+    font-size: 24px;
+    width: 850px;
+}

@@ -1,0 +1,190 @@
+div.categoria_smartphones, div.categoria_laptops, div.categoria_televisores,
+div.categoria_sonido, div.categoria_tablets,div.categoria_computadores{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+div.contenedor img{
+	width: 100%;
+}
+
+div.producto{
+	width: 22%;
+	margin: 1.5% auto;
+	text-align: center;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+}
+
+div.producto details{
+	width: 100%;
+}
+
+div.categoria_smartphones div.producto details, div.categoria_sonido div.producto details{
+	padding-top: 23px;
+}
+
+h2{
+	text-align: center;
+	width: 100%;
+	font-family: Ginebra;
+	font-size: 40px;
+	color: orange;
+	margin:1em 0 1em 0;
+}
+
+summary{
+	font-size: 1.3vw;
+	list-style: none;	
+	cursor: pointer;
+	font-weight: bold;
+}
+
+h3{
+	font-size: 1.2vw;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 15px;
+	font-weight: normal;
+	color: #003CC5;
+	font-weight: bold;
+}
+
+table{
+	padding: 20px;
+	text-align: left;
+	border-collapse: collapse;
+	width: 90%;
+	margin: auto;
+}
+
+th, td{
+	padding: 5px;
+	border-bottom: 2px solid orange;
+	background-color: #FBFBFB;
+	font-size: 0.9vw;
+}
+
+div.botoncompra{
+	width: 100%;
+}
+
+button{
+	margin-top: 20px;
+	height: 2.2em;
+	width: 40%;
+	border-radius: 10px;
+	font-size: 1vw;
+	background: #FFB356; 
+	border: 2px solid black;
+}
+
+button:hover{
+	background:#BF490F;
+	cursor: pointer;
+}
+
+footer{
+	margin-top: 10px;
+}
+
+div.container_footer{
+	background-color: #BDBDBD;
+	display: flex;
+}
+
+div.columna{
+	width: 33.33%;
+	padding: 25px 0px 10px 40px;
+}
+
+h4{
+	font-size: 1vw;
+}
+
+label{
+	display: block;
+	font-size: 1vw;		
+	padding-bottom: 10px;
+}
+
+div#pie_footer{
+	padding: 10px;
+	background: black;
+	color: #fff;
+	text-align: center;
+	border: 2px solid orange;
+}
+
+figure img{
+	width: 16%;
+	padding: 30px 30px 0px 0px;
+}
+
+small{
+	font-size: 1vw;
+}
+
+
+@media (max-width: 900px){
+
+	div.contenedor img{
+		height: 210px;
+		width: 40%;
+	}
+
+	div.producto{
+		width: 100%;
+		width: auto;
+	}
+
+	h2{
+		font-size: 4vw;
+		width: 24%;
+		margin: auto;
+		border-bottom: 2px solid black;
+	}
+
+	summary{
+		font-size: 2vw;
+	}
+
+	h3{
+		font-size: 1.9vw;
+	}
+
+	th, td{
+	font-size: 1.7vw;
+	}
+
+	button{
+		font-size: 2vw;
+		height: 1.9em;
+		width: 18%;
+	}
+
+	h4{
+		font-size: 1.8vw;
+	}
+
+	label{
+		font-size: 1.8vw;		
+    }
+
+    figure img{
+    	height: 50px;
+    	width: 50px;
+
+		padding: 30px 30px 0px 0px;
+	}
+
+	small{
+		font-size: 1.8vw;
+	}
+
+}
+
+
+

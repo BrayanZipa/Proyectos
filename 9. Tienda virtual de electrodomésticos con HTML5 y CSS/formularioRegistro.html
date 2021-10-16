@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Formulario de registro</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximun-scale=1">
+	<link rel="shortcut icon" href="images/icon.png">
+	<link rel="stylesheet" type="text/css" href="css/stylesformulario.css">	
+	<script src="javaScript/validacionform.js"></script>
+</head>
+<body>
+
+	<form class="formulario" onsubmit="return validar();">
+		<h1>Registrate</h1>
+
+		<div class="contenedor">
+
+			<div class="input-contenedor">		
+				<input type="text" id="nombres" placeholder="Nombres"  pattern="[a-z A-Z]+">
+			</div>
+
+			<div class="input-contenedor">		
+				<input type="text" id="apellidos" placeholder="Apellidos" requerid="" pattern="[a-z A-Z]+">
+			</div>	
+
+			<div class="input-contenedor">
+				<label for="fecha">Fecha de nacimiento</label>		
+				<input type="date" id="fecha" requerid="">
+			</div>	
+
+			<div class="input-contenedor">
+				<select>
+					<option>CC</option>
+					<option>CD</option>
+					<option>CE</option>
+					<option>CN</option>	
+					<option>ME</option>
+					<option>NT</option>
+					<option>RC</option>	
+				</select>
+				<input type="text" id="documento" placeholder="Número de documento" requerid="" pattern="[0-9]+">			
+			</div>
+
+			<div class="input-contenedor">
+				<select id="genero">
+					<option>Género Masculino</option>
+					<option>Género Femenino</option>
+					<option>Otro</option>
+				</select>		
+			</div>
+
+			<div class="input-contenedor">
+				<input type="text" id="telefono" placeholder="Teléfono de contacto" requerid="" pattern="[0-9]+" maxlength="10" minlength="10">		
+			</div>
+
+			<div class="input-contenedor">
+				<input type="text" id="ciudad" placeholder="Ciudad" requerid="" pattern="[a-z A-Z]+">	
+			</div>
+
+			<div class="input-contenedor">
+				<input type="text" id="direccion" placeholder="Dirección" requerid="">			
+			</div>
+
+			<div class="input-contenedor">
+				<input type="email" id="correo" placeholder="E-mail" requerid="">
+			</div>	
+
+			<div class="input-contenedor">
+				<input type="text" id="usuario" placeholder="Nombre de usuario" requerid="">			
+			</div>
+
+			<div class="input-contenedor">
+				<input type="password" id="llave" placeholder="Contraseña" requerid="">			
+			</div>
+
+			<input type="submit" value="Registrate" class="boton">
+			<p>Al registrarse, aceptas nuestras condiciones de uso y política de privacidad</p>
+			<p>¿Ya tienes cuenta?<a class="link" href="formularioIngreso.html">Iniciar sesión</a></p>
+
+		</div>
+	</form>
+		
+</body>
+</html>

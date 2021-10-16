@@ -1,0 +1,243 @@
+@media (min-width: 280px) and (max-width: 370px){
+	body{
+		background:#FF5600;
+	}
+
+	.introduccion{
+		text-align: center;
+		background: #FF970C;
+	}
+	#titulo{
+		color:#FF0000;
+		font-size: 5vw;
+	}
+
+	#subtitulo{
+		color:#FF0000;
+		font-size:4.5vw; 
+	}
+
+	.menu{
+		background: #FF970C;
+	}
+
+	.ejercito{
+		text-align: center;
+		background: #FF970C;
+	}
+	.ejercito2{
+		background: #FF970C;
+	}
+
+	.armada{
+		text-align: center;
+		background: #FF970C;
+	}
+	.armada2{
+		background: #FF970C;
+	}
+
+	.faerea{
+		text-align: center;
+		background: #FF970C;
+	}
+	.faerea2{
+		background: #FF970C;
+	}
+
+	h3{
+		color:#4C00C9;
+		font-size:4vw;
+	}
+
+	summary{
+		color:#4C00C9;
+		font-size: 3.8vw
+	}
+
+	h2{
+		font-size:3.5vw
+	}
+
+	figcaption{
+		font-size:3vw;
+		font-weight: bold;
+	}
+
+	table{
+		background:#FFF459;
+	}
+
+	.enlaces{
+		text-align: center;
+		background: #FFCD70;
+	}
+
+	iframe{
+		width: 100%;
+	}
+
+	.final{
+		background-color: gray;
+	}
+}
+
+@media (min-width: 371px) and (max-width: 850px){
+	body{
+		font-family: "Arial";
+		background:#FFC71E;
+	}
+	.introduccion{
+		text-align: center;
+		background: #FFB33C;
+	}
+	#titulo{
+		color:#00B43D;
+		font-size: 4vw;
+	}
+
+	#subtitulo{
+		color:#00B43D;
+		font-size:3.5vw; 
+	}
+
+	.menu{
+		background: #FFB33C;
+	}
+
+	.ejercito{
+		text-align: center;
+		background: #FFFF33;
+	}
+	.ejercito2{
+		background: #FFFF33;
+	}
+
+	.armada{
+		text-align: center;
+		background: #41A5FF;
+	}
+	.armada2{
+		background: #41A5FF;
+	}
+
+	.faerea{
+		text-align: center;
+		background: #D8FC27;
+	}
+	.faerea2{
+		background: #D8FC27;
+	}
+
+	h3{
+		color:#FF5900;
+		font-size:3vw;
+	}
+
+	summary{
+		color:#FF371D;
+		font-size:2.8vw;
+	}
+
+	h2{
+		font-size:2.5vw
+	}
+
+	figcaption{
+		font-size:2vw;
+		font-weight: bold;
+	}
+
+	table{
+		background:#84FF1D;
+	}
+
+	.enlaces{
+		text-align: center;
+		background: #EEFE9E;
+	}
+
+	iframe{
+		width: 100%;
+	}
+
+	.final{
+		background-color: gray;
+	}
+}
+
+@media(min-width: 851px) {
+	body{
+		font-family: "Helvetica";
+		background-image: url("../images/fondo1.jpg");
+	}
+
+	.introduccion{
+		text-align: center;
+	}
+
+	#titulo{
+		color:#00B43D;
+		font-size: 3vw;
+	}
+
+	#subtitulo{
+		color:#479C00;
+		font-size:2.8vw; 
+	}
+
+	.ejercito{
+		text-align: center;	
+	}
+	.ejercito2{
+		background: #BBFD36;
+	}
+
+	.armada{
+		text-align: center;
+	}
+
+	.armada2{
+		background: #BBFD36;
+	}
+
+	.faerea{
+		text-align: center;
+	}
+
+	.faerea2{
+		background: #BBFD36;
+	}
+
+	h3{
+		color:#FF5900;
+		font-size:2.6vw;
+	}
+
+	summary{
+		color:#FF371D;
+		font-size:2.5vw;
+	}
+
+	h2{
+		font-size:2vw
+	}
+
+	figcaption{
+		font-size:1vw;
+		font-weight: bold;
+	}
+
+	table{
+		background:#69E4E4;
+	}
+
+	.enlaces{
+		text-align: center;
+		font-weight: bold;
+	}
+
+	.final{
+		background-color: gray;
+	}
+}

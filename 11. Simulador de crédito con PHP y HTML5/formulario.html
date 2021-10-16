@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/FormularioP.css">
+    <title>Formulario</title>
+</head>
+
+<body>
+
+    <h1> Complete el siguiente formulario</h1>
+    <div class="contenedor">
+
+    </div>
+
+    <div class="formulario">
+        <form action="simulador.php" method="POST">
+            <label class="n">Digite su nombre</label>
+            <div class="nombre">
+                <input type="text" name="name" placeholder="Nombres">
+            </div>
+            <label class="a">Digite su apellido</label>
+            <div class="apellidos">
+                <input type="text" name="lastName" placeholder="Apellidos">
+            </div>
+            <label class="i">Digite su número de identificación</label>
+            <div class="id">
+                <input type="text" name="identification" placeholder="Documento">
+            </div>
+            <label class="t">Digite su número telefónico</label>
+            <div class="tel">
+                <input type="tel" name="phone" placeholder="Teléfono">
+            </div>
+            <label class="tasa">Elija un tipo de tasa</label>
+            <div class="eleccion">
+                <select name="tasa">
+                    <option selected></option>
+                    <option value="Fija">Fija</option>
+                    <option value="Variable">Variable</option>
+                </select>
+            </div>
+            <label class="salario">Digite su ingreso salarial</label>
+            <div class="ingresos">
+                <input type="text" name="earnings" placeholder="Ingresos mensuales">
+            </div>
+            <label class="mes">Digite el número de meses</label>
+            <div class="meses">
+                <input type="text" name="months" placeholder="Número meses">
+            </div>
+            <label class="pres">Digite el valor del préstamo</label>
+            <div class="prestamo">
+                <input type="text" name="value" placeholder="Valor préstamo">
+            </div><br>
+            <div class="enviar">
+                <input class="Benviar" type="submit" value="Enviar">
+            </div>
+
+        </form>
+    </div>
+    <div class="Logo">
+        <img src="Image/Salex.png" alt="">
+        <label class="salex" for="">Salex.com</label>
+    </div>
+</body>
+
+</html>

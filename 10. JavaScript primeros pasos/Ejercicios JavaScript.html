@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JavaScript</title>
+</head>
+<body>
+    <script>
+        var menu="MENU\n\n";
+        menu+="1. Calcular IVA\n";
+        menu+="2. Calcular definitiva\n";
+        menu+="3. Calcular préstamo\n";
+        menu+="4. Calcular estado de cuenta\n";
+        menu+="5. Calcular aprobación equipo de karate\n";
+        menu+="6. Salir\n";
+        menu+="Ingrese una opcion\n\n"
+
+        var opcion = 0;
+        while(opcion != 6){
+            opcion = parseInt(prompt(menu));
+            switch(opcion){
+                case 1:
+                    var total=0;
+                    var iva=0;
+                    var nombreProducto = prompt("Ingrese el nombre del producto");
+                    var valorProducto = parseFloat(prompt("Ingrese el valor del producto")); 
+                    var CantidadProducto = parseInt(prompt("Ingrese la cantidad del producto")); 
+                    if(valorProducto>0 && CantidadProducto>0){
+                        iva = (valorProducto*0.19);
+                        total = (iva+valorProducto)*CantidadProducto;
+                        document.write("<b>FACTURA</b><br><br>"+
+                        "Producto: "+nombreProducto+"<br>"+
+                        "Cantidad: "+CantidadProducto+"<br>"+
+                        "Valor unitario: "+valorProducto+"<br>"+
+                        "IVA unitario: "+iva+"<br>"+
+                        "Total: "+total+"<br><br>")
+                    }else{
+                        document.write("Ingrese valores validos"+"<br>");
+                    }
+                    break;
+                case 2:
+                    var suma=0;
+                    var promedio=0;
+                    var validacion=true;
+                    alert("Ingrese las cuatro notas del estudiante");
+                    for(var i=1;i<=4;i++){
+                        var nota = parseFloat(prompt("Ingrese la nota "+i+" del estudiante"));
+                        if(nota>=0  && nota<=50){
+                            suma += nota;
+                        }else{
+                            document.write("El valor ingresado no es valido"+"<br>");
+                            validacion=false;
+                            break;
+                        }  
+                    }
+                    promedio = suma/4;                   
+                    if(promedio<=5 && validacion==true){
+                        document.write("<b>DEFINITIVA</b><br><br>Nota final: "+promedio+"<br>");
+                        if(promedio<3){
+                        document.write("Perdió la asignatura");
+                        }else if(promedio<=3.9){
+                            document.write("Aprobó la asignatura puedes mejorar");
+                        }else if(promedio<=4.9){
+                            document.write("Felicitaciones aprobó la asignatura");
+                        }else{
+                            document.write("Haz sacado la máxima nota");
+                        }
+                        document.write("<br><br>");
+                    }else if(promedio<=50 && validacion==true){
+                        document.write("<b>DEFINITIVA</b><br><br>Nota final: "+promedio+"<br>");
+                        if(promedio<30){
+                        document.write("Perdió la asignatura");
+                        }else if(promedio<=39){
+                            document.write("Aprobó la asignatura puedes mejorar");
+                        }else if(promedio<=49){
+                            document.write("Felicitaciones aprobó la asignatura");
+                        }else{
+                            document.write("Haz sacado la máxima nota");
+                        }
+                        document.write("<br><br>");
+                    }
+                    break;
+                case 3:
+                    var cuotaMensual = 0;
+                    var interesCuotaMensual = 0;
+                    var totalPagar = 0;
+                    var totalPrestamo = parseFloat(prompt("Ingrese el valor del préstamo que desea solicitar"));
+                    var totalMeses = parseInt(prompt("Ingrese a cuantos meses desea pagar el préstamo"));
+                    
+                    if(totalPrestamo>0 && totalMeses>0){
+                        cuotaMensual = (totalPrestamo/totalMeses);
+                        if(totalMeses<12){  
+                            interesCuotaMensual = ((cuotaMensual*0.005)+cuotaMensual);     
+                            totalPagar = interesCuotaMensual*totalMeses;
+                        }else if(totalMeses<=24){
+                            interesCuotaMensual = (cuotaMensual*0.01)+cuotaMensual;
+                            totalPagar = interesCuotaMensual*totalMeses;
+                        }else{
+                            interesCuotaMensual = (cuotaMensual*0.015)+cuotaMensual;
+                            totalPagar = interesCuotaMensual*totalMeses;
+                        }
+                        document.write("<b>PRESTAMO</b><br><br>"+
+                        "Valor cuota mensual: "+ interesCuotaMensual+"<br>"+
+                        "Total a pagar al final del préstamo: "+ totalPagar+"<br><br>")
+                    }else{
+                        document.write("Ha ingresado valores invalidos"+"<br>");
+                    }
+                    break;
+                case 4:
+                    var informe ="";
+                    var estado = "";
+                    for(var i=1;i<=3;i++){
+                        var cuenta = prompt("Ingrese el número de cuenta del cliente "+i);
+                        var cliente = prompt("Ingrese el nombre del cliente "+i);
+                        var saldo =parseFloat(prompt("Ingrese el saldo del cliente "+i));
+
+                        if(saldo>0){
+                            estado = "Acreedor";
+                        }else if(saldo<0){
+                            estado = "Deudor";
+                        }else{
+                            estado = "Nulo";
+                        }
+
+                        informe += "Cliente "+i+"<br>";
+                        informe += "Número de cuenta: "+cuenta+"<br>";
+                        informe += "Nombre: "+cliente+"<br>";
+                        informe += "Estado de la cuenta: "+estado+"<br><br>";
+                    }
+                    document.write("<b>ESTADO DE CUENTA</b><br><br>"+informe+" ");
+                    break;
+                case 5:
+                    var semestre= "Acualmente se encuentra en:\n\n";
+                    semestre +="1. Primer semestre\n";
+                    semestre +="2. Segundo semestre\n";
+                    semestre +="3. Tercer semestre en adelante\n";
+                    semestre +="Seleccione\n";
+
+                    var peso = parseFloat(prompt("Ingrese el peso del estudiante en kilogramos"));
+                    var estatura = parseFloat(prompt("Ingrese la altura del estudiante en metros"));
+                    var validacion = parseInt(prompt(semestre));
+
+                    if(peso>0 && estatura>0 && validacion>=1 && validacion<=3){
+                        document.write("<b>APROBACION</b><br><br>");
+                        if(peso<=50 && estatura>1.70 && (validacion==1 || validacion==2)){
+                            document.write("El estudiante ha sido aprobado para entrar al equipo de karate"+"<br><br>");
+                        }else{
+                            document.write("El estudiante NO ha sido aprobado para entrar al equipo de karate"+"<br><br>"); 
+                        }
+                    }else{
+                        document.write("Ha ingresado valores invalidos"+"<br>");
+                    }
+                    break;
+                case 6:
+                    document.write("Ha seleccionado salir");
+                    break;
+                default:
+                    document.write("Ha seleccionado un valor invalido");
+                    break;
+            }
+            document.write("<br><br>");
+        }
+    </script>
+</body>
+</html>

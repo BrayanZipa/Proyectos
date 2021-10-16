@@ -1,0 +1,165 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: helvetica;
+	font-size: 18px;
+}
+
+/* Imagenes */
+.Logo{
+	
+	background-color: #212121;
+	margin:0; 
+	position:fixed;
+	z-index:1000;
+	width: 100%;
+	border-bottom: 2px solid orange;
+}
+
+.Logo img{
+	height: 60px;  
+}
+
+.buscador input{
+    font-size: 18px;	
+	margin: 6px;
+	border-radius: 30px;
+	width: 240px;
+	height: 40px;
+    outline: none;	
+	padding:20px;
+	position:fixed;
+	z-index:1000;
+    right:50px;
+    top:5px;
+}
+.lupa img {
+	width: 30px;
+	height: 30px;
+	margin-top: 12px;
+	line-height: 55px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+	position:fixed;
+	z-index:1000;
+    right: 20px;
+    top:5px;
+}
+.publicidad img{	
+	margin:10% 10% 1% 10%;
+	width: 80%;
+}
+
+/* Menu */
+
+.menu{
+	list-style: none;
+	padding: 0;
+	background: orange;
+	width: 100%;
+	max-width: 100%;
+	position:fixed;
+	z-index:1000;
+	top:67px;
+	border-bottom: 2px solid #212121;
+}
+
+.menu ul,li{	
+	list-style: none;	
+}
+
+.menu li a{
+	text-decoration: none;
+	color: white;
+	padding: 13px;
+	display: block;
+}	
+
+.menu > li{
+	display: inline-block;
+	text-align: center;	
+}
+
+.menu li a:hover{
+	background: #000000;
+	cursor: pointer;
+	border-bottom: 3px solid orange;
+}
+
+.menu li ul{
+	display: none;
+	position: absolute;
+	min-width: 140px;
+}
+
+.menu li:hover > ul{
+	display: block;
+}
+
+.menu li ul li{
+	color: orange;
+	position: relative;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	background-color:#212121;
+}
+
+.menu li ul li ul{
+	right: -139px;
+	top: 0px;
+}
+
+.contenedor img{
+	width: 30%	;
+}
+
+.contenedor{
+	text-align: center;
+	font-family: arial, helvetica;
+}
+
+ a#carrito img{
+	width: 50px;
+	height: 55px;
+	padding: 3px;
+	position:fixed;
+	z-index:1000;
+	right:30px;
+	bottom:50px;
+}
+
+a#carrito img:hover{
+	border-bottom: 2px solid orange;
+	cursor: pointer;
+}
+
+.contador{
+	width: 67%;
+	float: right;
+	height: 50px;
+}
+
+.contador img {
+	width:30px;
+	height:35px;
+    float: right;  
+}
+
+.contador > div	{
+	display: inline-block;
+	margin-right: 20px;
+	float:right;
+}
+
+.contador label{
+	font-size: 20px;
+    float: right;
+    margin-top: 10px:  
+}

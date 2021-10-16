@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios While</title>
+</head>
+<body>
+    <script>
+        var menu="MENU\n\n";
+        menu+="1. Primer ejercicio\n";
+        menu+="2. Segundo ejercicio\n";
+        menu+="3. Tercer ejercicio\n";
+        menu+="4. Cuarto ejercicio\n";
+        menu+="5. Quinto ejercicio\n";
+        menu+="6. Sexto ejercicio\n";
+        menu+="7. Salir\n";
+        menu+="Ingrese una opcion\n\n"
+
+        var opcion = 0;
+        while(opcion != 7){
+            opcion = parseInt(prompt(menu));
+            var num = 0;
+            switch(opcion){
+                case 1:
+                    num = 1;
+                    while(num<=500){
+                        document.write(num+"\n");
+                        num++;
+                    }
+                    break;
+                case 2:
+                    num = 50;
+                    while(num<=100){
+                        document.write(num+"\n");
+                        num++;
+                    }
+                    break;
+                case 3:
+                    num = -50;
+                    while(num<=0){
+                        document.write(num+"\n");
+                        num++;
+                    }
+                    break;
+                case 4:
+                    num = 2;
+                    while(num<=100){
+                        document.write(num+"\n");
+                        num +=2;
+                    }
+                    break;
+                case 5:
+                    num = 11;
+                    while(num<=275){
+                        document.write(num+"\n");
+                        num +=11;
+                    }
+                    break;
+                case 6:
+                    num = 8;
+                    while(num<500){
+                        document.write(num+"\n");
+                        num +=8;
+                    }
+                    break;
+                case 7:
+                    document.write("Ha seleccionado salir");
+                    break;
+                default:
+                    document.write("Ha seleccionado un valor invalido");
+                    break;
+            }
+            document.write("<br><br>");
+        }
+    </script>
+</body>
+</html>
