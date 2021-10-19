@@ -18,7 +18,7 @@ Programa realizado mediante el paradigma de programación orientada a objetos, e
 
 ------------
 ### 3. Interfaz gráfica calculadora básica en Java
-El proyecto es una calculadora básica en java utilizando los componentes gráficos de la bibleoteca Swing.
+El proyecto es una calculadora básica en Java utilizando los componentes gráficos de la bibleoteca Swing.
 
 ![Calculadora básica](Imagenes/3.PNG "Calculadora")
 
