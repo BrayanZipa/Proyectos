@@ -10,7 +10,7 @@ Programa realizado en consola haciendo uso de las funciones básicas de un lengu
 
 ------------
 ### 2. Control de ventas utilizando POO en Java
-Programa realizado mediante el paradigma de programación orientada a objetos, el cuál hace uso de la relación de clases para crear objetos que almacenan información de las ventas realizadas por una empresa hipotética. En el programa se pueden almacenar hasta 10 empleados y 20 ventas (valores modificables en la clase Empresa), este program se corre en consola y desde la clase Principal.
+Programa realizado mediante el paradigma de programación orientada a objetos, el cuál hace uso de la relación de clases para crear objetos que almacenan información de las ventas realizadas por una empresa hipotética. En el programa se pueden almacenar hasta 10 empleados y 20 ventas (valores modificables en la clase Empresa), este programa se corre en consola y desde la clase Principal.
 
 ![Objetos](Imagenes/2.PNG)
 
