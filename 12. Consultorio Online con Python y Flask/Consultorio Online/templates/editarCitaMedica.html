@@ -1,0 +1,35 @@
+{% extends 'global.html' %}
+
+    {% block body %}
+
+    <h3>Editar cita médica</h3>
+	<div id="contenedor"> 
+    	<form class="formulario" action="/guardar_editarcitamedica/{{appointment.id}}" method="POST">
+
+			<div class="form-group">
+                <label>Médicos</label>	
+                <select class="form-control" name="medico">
+					<option selected>Seleccione</option>
+					{% for doctor in functionary %}
+                    	<option value="{{doctor.id}}">{{doctor.name}} {{doctor.lastName}}</option>
+					{% endfor %}
+                </select>		
+            </div>
+
+			<div class="form-group">
+				<label for="fecha">Fecha cita médica</label>		
+				<input class="form-control" type="date" value="{{appointment.applicationDate}}" name="applicationDate"  requerid="">
+			</div>
+            
+            <div class="form-group">
+                <label for="fecha">Hora cita médica</label>
+                <input class="form-control" type="time" value="{{appointment.applicationHour}}" name="applicationHour">
+            </div>
+
+			<div id="boton" class="form-group">
+				<input class="btn btn-dark btn-update3" type="submit" value="Registrar cita médica">
+			</div>
+		</form>
+	</div>
+
+	{% endblock %}

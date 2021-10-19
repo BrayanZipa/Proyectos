@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Registro pacientes</title>
+
+	<style>
+		#contenedor{
+			margin-left: 230px;
+		}
+
+		.form-group{
+        	width: 80%;	
+      	}
+
+		h1{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 50px;
+			margin-bottom: 25px;
+        } 
+  
+		label{
+			font-size: 20px;
+		}
+  	
+		p{
+			font-size: 18px;
+		}
+
+		a{
+			color: #fff;
+		}
+
+		#boton{
+		  text-align: center;
+		  margin-top: 30px;
+		}
+
+	  </style>
+</head>
+<body class="p-3 mb-2 bg-info text-dark">
+    <h1>Registrate</h1>
+	<div id="contenedor">
+    	<form class="formulario" action="{{url_for('crear_registropacientes')}}" method="POST">
+		
+			<div class="form-group">		
+				<input class="form-control" type="text" name="name"  placeholder="Nombres"  pattern="[a-z A-Z]+">
+			</div>
+
+			<div class="form-group">		
+				<input class="form-control" type="text" name="lastName" placeholder="Apellidos" requerid="" pattern="[a-z A-Z]+">
+			</div>	
+
+            <div class="form-group">
+				<input class="form-control" type="text" name="identification" placeholder="Número de documento" requerid="" pattern="[0-9]+">			
+			</div>
+
+			<div class="form-group">
+				<label for="fecha">Fecha de nacimiento</label>		
+				<input class="form-control" type="date" name="birthdate"  requerid="">
+			</div>	
+
+            <div class="form-group">
+                <label>Género</label>	
+                <select class="form-control" name="genre">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>		
+            </div>
+
+			<div class="form-group">
+				<input class="form-control" type="text" name="phone" placeholder="Teléfono de contacto" requerid="" pattern="[0-9]+" maxlength="10" minlength="10">		
+			</div>
+
+			<div class="form-group">
+				<input class="form-control" type="text"  name="district" placeholder="Localidad" requerid="" pattern="[a-z A-Z]+">	
+			</div>
+
+			<div class="form-group">
+				<input class="form-control" type="text" name="address" placeholder="Dirección" requerid="">			
+			</div>
+
+            <div class="form-group">
+                <label>Tipo de sangre </label>	
+				<select class="form-control" name="bloodType">			
+					<option value="1">O-</option>
+					<option value="2">O+</option>
+					<option value="3">A-</option>
+                    <option value="4">A+</option>
+                    <option value="5">B-</option>
+                    <option value="6">B+</option>
+                    <option value="7">AB-</option>
+                    <option value="8">AB+</option>
+				</select>		
+			</div>
+
+			<div class="form-group">
+				<input class="form-control" type="email" name="email" placeholder="E-mail" requerid="">
+			</div>	
+
+			<div class="form-group">
+				<input class="form-control" type="password" name="password" placeholder="Contraseña" requerid="">			
+			</div>
+
+			<div id="boton" class="form-group">
+				<input class="btn btn-dark" type="submit" value="Registrate">
+			</div>
+			<p>Al registrarse, aceptas nuestras condiciones de uso y política de privacidad</p>
+			<p>¿Ya tienes cuenta? <a style="text-decoration: none" href="/pacientesignup">Iniciar sesión</a></p>
+		</form>
+	</div>
+</body>
+</html>

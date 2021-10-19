@@ -1,0 +1,34 @@
+{% extends 'global.html' %}
+
+  	{% block body %}
+
+    <h3>Solicitar cita médica</h3>
+	<div id="contenedor">
+    	<form class="formulario" action="/crear_registrocitasmedicas/{{id}}" method="POST">	
+
+			<div class="form-group">
+                <label>Médicos</label>	
+                <select class="form-control" name="medico">
+					{% for doctor in functionary %}
+                    	<option value="{{doctor.id}}">{{doctor.name}} {{doctor.lastName}}</option>
+					{% endfor %}
+                </select>		
+            </div>
+
+			<div class="form-group">
+				<label for="fecha">Fecha cita médica</label>		
+				<input class="form-control" type="date" name="applicationDate"  requerid="">
+			</div>
+            
+            <div class="form-group">
+                <label for="fecha">Hora cita médica</label>
+                <input class="form-control" type="time" name="applicationHour">
+            </div>
+
+			<div id="boton" class="form-group">
+				<input class="btn btn-dark btn-update1" type="submit" value="Registrar cita médica">
+			</div>
+		</form>
+	</div>
+	
+	{% endblock %}

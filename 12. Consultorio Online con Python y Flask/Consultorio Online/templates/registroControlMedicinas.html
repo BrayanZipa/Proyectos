@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro control medicina</title>
+</head>
+<body>
+    <h1>Inventario de medicinas</h1>
+    <form class="formulario" action="{{url_for('crear_registrocontrolmedicinas')}}" method="POST">
+		<div class="contenedor">
+
+            <div class="input-contenedor">
+                <label>Tipo de registro</label>	
+                <select name="registerType">
+                    <option value="1">Entrada</option>
+                    <option value="2">Salida</option>
+                </select>		
+            </div>
+
+            <div class="input-contenedor">		
+				<input type="text" name="codigoMedicina"  placeholder="Código medicina"  requerid="">
+			</div>
+
+            <div class="input-contenedor">		
+				<input type="text" name="quantity"  placeholder="Cantidad"  requerid="" pattern="[0-9]+">
+			</div>
+
+			<div class="input-contenedor">		
+				<input type="text" name="identificacion" placeholder="Documento funcionario que registra" requerid="" pattern="[0-9]+">
+			</div>	
+ 
+			<input type="submit" value="Registrar movimiento">
+
+		</div>
+	</form>
+</body>
+</html>

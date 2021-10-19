@@ -1,0 +1,77 @@
+{% extends 'global.html' %}
+
+    {% block body %}
+	
+    <h3>Actualizar perfil</h3>
+	<div id="contenedor">
+    	<form action="/guardar_actualizacionperfilpaciente/{{patient.id}}" method="POST">
+
+			<div class="form-group">		
+				<input class="form-control" type="text" value="{{patient.name}}" name="name"  placeholder="Nombres"  pattern="[a-z A-Z]+">
+			</div>
+
+			<div class="form-group">		
+				<input class="form-control" type="text" value="{{patient.lastName}}" name="lastName" placeholder="Apellidos" requerid="" pattern="[a-z A-Z]+">
+			</div>	
+
+            <div class="form-group">
+				<input class="form-control" type="text" value="{{patient.identification}}" name="identification" placeholder="Número de documento" requerid="" pattern="[0-9]+">			
+			</div>
+
+			<div class="form-group">
+				<label for="fecha">Fecha de nacimiento</label>		
+				<input class="form-control" type="date" value="{{patient.birthdate}}" name="birthdate"  requerid="">
+			</div>	
+
+            <div class="form-group">
+                <label>Género</label>	
+                <select class="form-control" name="genre">
+                    <option selected>Seleccione</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>		
+            </div>
+
+			<div class="form-group">
+				<input class="form-control" type="text" value="{{patient.phone}}" name="phone" placeholder="Teléfono de contacto" requerid="" pattern="[0-9]+" maxlength="10" minlength="10">		
+			</div>
+
+			<div class="form-group">
+				<input class="form-control" type="text" value="{{patient.district}}" name="district" placeholder="Localidad" requerid="" pattern="[a-z A-Z]+">	
+			</div>
+
+			<div class="form-group">
+				<input class="form-control" type="text" value="{{patient.address}}" name="address" placeholder="Dirección" requerid="">			
+			</div>
+
+            <div class="form-group">
+                <label>Tipo de sangre </label>	
+				<select class="form-control" name="bloodType">
+                    <option selected>Seleccione</option>		
+					<option value="1">O-</option>
+					<option value="2">O+</option>
+					<option value="3">A-</option>
+                    <option value="4">A+</option>
+                    <option value="5">B-</option>
+                    <option value="6">B+</option>
+                    <option value="7">AB-</option>
+                    <option value="8">AB+</option>
+				</select>		
+			</div>
+
+			<div class="form-group">
+				<input class="form-control" type="email" value="{{patient.email}}" name="email" placeholder="E-mail" requerid="">
+			</div>	
+
+			<div class="form-group">
+				<input class="form-control" type="password" value="{{patient.password}}" name="password" placeholder="Contraseña" requerid="">			
+			</div>
+
+			<div id="boton" class="form-group">
+				<input class="btn btn-dark btn-update2" type="submit" value="Actualizar">
+			</div>
+		</form>
+	</div>
+	
+	{% endblock %}

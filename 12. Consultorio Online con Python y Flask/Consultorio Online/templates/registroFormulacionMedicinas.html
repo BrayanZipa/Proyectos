@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro formulación medicina</title>
+</head>
+<body>
+    <h1>Ingreso de formulación de medicina</h1>
+    <form class="formulario" action="{{url_for('crear_registroformulacionmedicinas')}}" method="POST">
+		<div class="contenedor">
+
+			<div class="input-contenedor">		
+				<input type="text" name="documento"  placeholder="Documento paciente"  requerid="" pattern="[0-9]+">
+			</div>
+
+			<div class="input-contenedor">		
+				<input type="text" name="codigoMedicina" placeholder="Código medicamento" requerid="">
+			</div>	
+
+			<input type="submit" value="Registrar formulación">
+
+		</div>
+	</form>
+</body>
+</html>

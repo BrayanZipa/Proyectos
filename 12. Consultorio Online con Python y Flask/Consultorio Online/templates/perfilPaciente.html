@@ -1,0 +1,61 @@
+{% extends 'global.html' %}
+
+{% block body %}
+
+<h3>Perfil de usuario</h3>
+<div id="tabla">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Nombres</td>
+                <td>{{patient.name}}</td>
+            </tr>
+            <tr>
+                <td>Apellidos</td>
+                <td>{{patient.lastName}}</td>
+            </tr>
+            <tr>
+                <td>Identificación</td>
+                <td>{{patient.identification}}</td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento</td>
+                <td>{{patient.birthdate}}</td>
+            </tr>
+            <tr>
+                <td>Edad</td>
+                <td>{{patient.age}}</td>
+            </tr>
+            <tr>
+                <td>Género</td>
+                <td>{{patient.genre}}</td>
+            </tr>
+            <tr>
+                <td>Teléfono</td>
+                <td>{{patient.phone}}</td>
+            </tr>
+            <tr>
+                <td>Localidad</td>
+                <td>{{patient.district}}</td>
+            </tr>
+            <tr>
+                <td>Dirección</td>
+                <td>{{patient.address}}</td>
+            </tr>
+            <tr>
+                <td>Tipo de sangre</td>
+                <td>{{patient.bloodType}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{patient.email}}</td>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div id="boton">
+    <a class="btn btn-dark" href="/actualizarperfilpaciente/{{patient.id}}">Actualizar perfil</a>
+</div>
+
+{% endblock %}

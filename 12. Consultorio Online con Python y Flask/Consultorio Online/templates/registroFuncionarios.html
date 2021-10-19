@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro funcionarios</title>
+</head>
+<body>
+    <h1>Registro Funcionario</h1>
+    <form class="formulario" action="{{url_for('crear_registrofuncionarios')}}" method="POST">
+		<div class="contenedor">
+
+            <div class="input-contenedor">
+				<input type="email" name="email" placeholder="E-mail" requerid="">
+			</div>	
+
+			<div class="input-contenedor">
+				<input type="password" name="password" placeholder="Contraseña" requerid="">			
+			</div>
+
+            <div class="input-contenedor">
+				<input type="text" name="identification" placeholder="Número de documento" requerid="" pattern="[0-9]+">			
+			</div>
+
+			<div class="input-contenedor">		
+				<input type="text" name="name"  placeholder="Nombres"  pattern="[a-z A-Z]+">
+			</div>
+
+			<div class="input-contenedor">		
+				<input type="text" name="lastName" placeholder="Apellidos" requerid="" pattern="[a-z A-Z]+">
+			</div>	 
+
+            <div class="input-contenedor">		
+				<input type="text" name="position" placeholder="Cargo" requerid="" pattern="[a-z A-Z]+">
+			</div>	
+
+			<div class="input-contenedor">
+				<input type="text" name="phone" placeholder="Teléfono de contacto" requerid="" pattern="[0-9]+" maxlength="10" minlength="10">		
+			</div>
+
+			<input type="submit" value="Registrate">
+		</div>
+	</form>
+</body>
+</html>

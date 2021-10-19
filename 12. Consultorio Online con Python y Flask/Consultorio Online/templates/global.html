@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>MiSalud</title>
+
+  <style>
+    h3 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      margin: 30px;
+    }
+
+    #contenedor {
+      margin-left: 305px;
+    }
+
+    .form-group {
+      width: 500px;
+    }
+
+    label {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+    }
+
+    #boton {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    div#tabla {
+      width: 700px;
+      color: rgb(0, 0, 0);
+      margin-left: 200px;
+    }
+
+    .tablas {
+      color: rgb(0, 0, 0);
+    }
+
+    .cabecera {
+      font-weight: bold;
+    }
+
+    table {
+      width: 70%;
+    }
+
+    tr {
+      height: 30px;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(39, 82, 224, 0.288);
+    }
+
+    tr:nth-child(odd) {
+      background-color: rgba(154, 155, 158, 0.432);
+    }
+
+    tr:hover td {
+      background-color: rgb(168, 175, 168);
+    }
+  </style>
+</head>
+
+<body class="p-3 mb-2 bg-info text-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/interfazpaciente/{{patient.id}}">MiSalud</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/perfilpaciente/{{patient.id}}">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/registrocitasmedicas/{{patient.id}}">Solicitud de cita
+              médica</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/citasmedicasreservadas/{{patient.id}}">Citas médicas reservadas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/historialcitasmedicas/{{patient.id}}">Historial citas médicas</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    {% block body %}
+    {% endblock %}
+  </div>
+
+  <script> 
+    const boton1 = document.querySelectorAll('.btn-delete')
+    if(boton1){
+      const arreglo = Array.from(boton1);
+      arreglo.forEach((btn) =>{
+        btn.addEventListener('click', (e) =>{
+          if(!confirm("¿Desea eliminar la cita médica reservada?")){
+            e.preventDefault();         
+          }
+        });
+      });
+    }
+
+    const boton2 = document.querySelectorAll('.btn-update1')
+    if(boton2){
+      const arreglo = Array.from(boton2);
+      arreglo.forEach((btn) =>{
+        btn.addEventListener('click', (e) =>{
+            alert("Cita médica reservada con éxito");
+        });
+      });
+    }
+
+    const boton3 = document.querySelectorAll('.btn-update2')
+    if(boton3){
+      const arreglo = Array.from(boton3);
+      arreglo.forEach((btn) =>{
+        btn.addEventListener('click', (e) =>{
+            alert("Perfil actualizado con éxito");
+        });
+      });
+    }
+
+    const boton4 = document.querySelectorAll('.btn-update3')
+    if(boton4){
+      const arreglo = Array.from(boton4);
+      arreglo.forEach((btn) =>{
+        btn.addEventListener('click', (e) =>{
+            alert("Cita médica actualizada con éxito");
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
