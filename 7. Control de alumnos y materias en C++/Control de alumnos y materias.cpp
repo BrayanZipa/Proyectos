@@ -149,7 +149,7 @@ void Registro_Datos(alumno estudiante[],int m){
 		cin>>estudiante[i].cedula;
 	    cout<<"Ingrese el nombre del estudiante\n";
 	    cin>>estudiante[i].nombre;
-	    //cin.ignore(20,'\n');
+	    cin.ignore(40,'\n');
 		//cin.getline(estudiante[i].nombre,20,'\n');
 		
 		//getline(cin, estudiante[i].nombre);

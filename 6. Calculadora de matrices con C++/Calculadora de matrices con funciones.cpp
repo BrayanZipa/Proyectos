@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
 		cout<<"1 = Suma de matrices\n";
 		cout<<"2 = Resta de matrices\n";
 		cout<<"3 = Multiplicacion de matrices\n";
-		cout<<"4 = Division de matrices (hipotética)\n";
+		cout<<"4 = Division de matrices (hipotetica)\n";
 		cout<<"5 = Salir";
 		cout<<endl;
 		
