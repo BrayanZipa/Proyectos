@@ -17,11 +17,8 @@
     }
 
     #contenedor {
-      margin-left: 305px;
-    }
-
-    .form-group {
-      width: 500px;
+      margin-left: 25%;
+      margin-right: 25%;
     }
 
     label {
@@ -35,9 +32,9 @@
     }
 
     div#tabla {
-      width: 700px;
       color: rgb(0, 0, 0);
-      margin-left: 200px;
+      margin-left: 20%;
+      margin-right: 20%;
     }
 
     .tablas {
@@ -46,10 +43,6 @@
 
     .cabecera {
       font-weight: bold;
-    }
-
-    table {
-      width: 70%;
     }
 
     tr {
@@ -103,45 +96,45 @@
     {% endblock %}
   </div>
 
-  <script> 
+  <script>
     const boton1 = document.querySelectorAll('.btn-delete')
-    if(boton1){
+    if (boton1) {
       const arreglo = Array.from(boton1);
-      arreglo.forEach((btn) =>{
-        btn.addEventListener('click', (e) =>{
-          if(!confirm("¿Desea eliminar la cita médica reservada?")){
-            e.preventDefault();         
+      arreglo.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          if (!confirm("¿Desea eliminar la cita médica reservada?")) {
+            e.preventDefault();
           }
         });
       });
     }
 
     const boton2 = document.querySelectorAll('.btn-update1')
-    if(boton2){
+    if (boton2) {
       const arreglo = Array.from(boton2);
-      arreglo.forEach((btn) =>{
-        btn.addEventListener('click', (e) =>{
-            alert("Cita médica reservada con éxito");
+      arreglo.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          alert("Cita médica reservada con éxito");
         });
       });
     }
 
     const boton3 = document.querySelectorAll('.btn-update2')
-    if(boton3){
+    if (boton3) {
       const arreglo = Array.from(boton3);
-      arreglo.forEach((btn) =>{
-        btn.addEventListener('click', (e) =>{
-            alert("Perfil actualizado con éxito");
+      arreglo.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          alert("Perfil actualizado con éxito");
         });
       });
     }
 
     const boton4 = document.querySelectorAll('.btn-update3')
-    if(boton4){
+    if (boton4) {
       const arreglo = Array.from(boton4);
-      arreglo.forEach((btn) =>{
-        btn.addEventListener('click', (e) =>{
-            alert("Cita médica actualizada con éxito");
+      arreglo.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          alert("Cita médica actualizada con éxito");
         });
       });
     }

@@ -1,0 +1,41 @@
+{% extends 'global2.html' %}
+
+{% block body %}
+
+<h3>Perfil Funcionario</h3>
+<div id="tabla">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Email</td>
+                <td>{{functionary.email}}</td>
+            </tr>
+            <tr>
+                <td>Identificación</td>
+                <td>{{functionary.identification}}</td>
+            </tr>
+            <tr>
+                <td>Nombres</td>
+                <td>{{functionary.name}}</td>
+            </tr>
+            <tr>
+                <td>Apellidos</td>
+                <td>{{functionary.lastName}}</td>
+            </tr>
+            <tr>
+                <td>Cargo</td>
+                <td>{{functionary.position}}</td>
+            </tr>
+            <tr>
+                <td>Teléfono</td>
+                <td>{{functionary.phone}}</td>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div id="boton">
+    <a class="btn btn-dark" href="/actualizarperfilfuncionario/{{functionary.id}}">Actualizar perfil</a>
+</div>
+
+{% endblock %}

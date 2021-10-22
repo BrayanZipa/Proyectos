@@ -339,19 +339,7 @@ def historialcitasmedicas(id):
 
 
 
-
-
-
-
-
-
-'''
-A partir de este punto, las siguiente rutas estan funcionales para ingresar valores a las diferentes tablas creadas 
-en la base de datos, pero son rutas que no estan funcionales en la interfaz gráfica y tampoco tienen un menú de 
-desplazamiento para navegar entre páginas. 
-
-'''
-
+# Rutas en la interfaz del rol de funcionario o médico
 
 #Ruta de regitro de funcionarios nuevos
 @app.route('/registrofuncionarios')
@@ -374,6 +362,63 @@ def crear_registrofuncionarios():
         db.session.commit()
 
         return 'Registro de funcionario exitoso'
+
+
+@app.route('/perfilfuncionario/<id>')
+def perfilfuncionario(id): 
+    functionary = Functionary.query.filter_by(id=id).first()
+    
+    return render_template("perfilFuncionario.html", functionary = functionary)
+
+
+@app.route('/actualizarperfilfuncionario/<id>')
+def actualizarperfilfuncionario(id): 
+    functionary = Functionary.query.filter_by(id=id).first()
+    
+    return render_template("actualizarPerfilFuncionario.html", functionary = functionary) 
+
+
+@app.route('/guardar_actualizacionperfilFuncionario/<id>', methods=['POST'])
+def guardar_actualizacionperfilFuncionario(id): 
+    id = int(id)
+    functionary = Functionary.query.filter_by(id=id).first()
+
+    
+    email = request.form['email']
+    password = request.form['password']
+    identification = request.form['identification']
+    name = request.form['name']
+    lastName = request.form['lastName']
+    position = request.form['position']
+    phone = request.form['phone']
+
+    functionary.email = email
+    functionary.password = password
+    functionary.identification = identification
+    functionary.name = name
+    functionary.lastName = lastName
+    functionary.position = position
+    functionary.phone  = phone 
+
+    db.session.commit()
+
+    return redirect(url_for("perfilfuncionario", id = functionary.id))
+
+
+
+
+
+
+
+'''
+A partir de este punto, las siguiente rutas estan funcionales para ingresar valores a las diferentes tablas creadas 
+en la base de datos, pero son rutas que no estan funcionales en la interfaz gráfica y tampoco tienen un menú de 
+desplazamiento para navegar entre páginas. 
+
+'''
+
+
+
 
 
 #Ruta de registro de medicamentos nuevos

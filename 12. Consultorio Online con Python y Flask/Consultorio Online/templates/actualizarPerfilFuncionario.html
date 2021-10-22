@@ -1,0 +1,43 @@
+{% extends 'global2.html' %}
+
+{% block body %}
+<h3>Actualizar perfil</h3>
+
+<div id="contenedor">
+    <form action="/guardar_actualizacionperfilFuncionario/{{functionary.id}}" method="POST">
+        
+        <div class="form-group">
+            <input class="form-control" type="email" value="{{functionary.email}}" name="email" placeholder="E-mail" requerid="">
+        </div>	
+
+        <div class="form-group">
+            <input class="form-control" type="password" value="{{functionary.password}}" name="password" placeholder="Contraseña" requerid="">			
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" value="{{functionary.identification}}" name="identification" placeholder="Número de documento" requerid="" pattern="[0-9]+">			
+        </div>
+
+        <div class="form-group">		
+            <input class="form-control" type="text" value="{{functionary.name}}" name="name"  placeholder="Nombres"  pattern="[a-z A-Z]+">
+        </div>
+
+        <div class="form-group">		
+            <input class="form-control" type="text" value="{{functionary.lastName}}" name="lastName" placeholder="Apellidos" requerid="" pattern="[a-z A-Z]+">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" value="{{functionary.position}}" name="position" placeholder="Cargo" requerid="" pattern="[a-z A-Z]+">	
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" value="{{functionary.phone}}" name="phone" placeholder="Teléfono de contacto" requerid="" pattern="[0-9]+" maxlength="10" minlength="10">		
+        </div>
+
+        <div id="boton" class="form-group">
+            <input class="btn btn-dark btn-update2" type="submit" value="Actualizar">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
