@@ -405,10 +405,119 @@ def guardar_actualizacionperfilFuncionario(id):
     return redirect(url_for("perfilfuncionario", id = functionary.id))
 
 
+@app.route('/citasmedicasprogramadas/<id>')
+def citasmedicasprogramadas(id): 
+    functionary = Functionary.query.filter_by(id=id).first()
+    MedicalAppointment = MedicalAppointmentHistory.query.filter_by(functionary_id=id, state = None).all()
+
+    patientList = []
+    for i in MedicalAppointment:
+        patient =  Patient.query.filter_by(id=i.patient_id).first()
+        patientList.append(patient.name + " " + patient.lastName)
+
+    for i, j in zip(MedicalAppointment, patientList):
+        i.patient_id = j 
+
+    return render_template("citasMedicasProgramadas.html", MedicalAppointment = MedicalAppointment, functionary = functionary) 
 
 
+@app.route('/valoracioncitamedica/<appointment_id>/<functionary_id>')
+def valoracioncitamedica(appointment_id, functionary_id): 
+    functionary = Functionary.query.filter_by(id=functionary_id).first()
+    medicalAppointment = MedicalAppointmentHistory.query.filter_by(id=appointment_id).first()
+
+    return render_template("valoracioncitaMedica.html", medicalAppointment = medicalAppointment, functionary = functionary) 
 
 
+@app.route('/guardar_valoracioncitamedica/<medicalAppointment_id>/<functionary_id>', methods=['POST'])
+def guardar_valoracioncitamedica(medicalAppointment_id, functionary_id): 
+    functionary = Functionary.query.filter_by(id=functionary_id).first()
+    medicalAppointment = MedicalAppointmentHistory.query.filter_by(id=medicalAppointment_id).first()
+
+    registerType = request.form['registerType']
+    observation = request.form['observation']
+
+    medicalAppointment.state = registerType
+    medicalAppointment.observation = observation
+
+    db.session.commit()
+
+    return redirect(url_for("historialcitasmedicasrealizadas", id = functionary.id))
+
+
+@app.route('/historialcitasmedicasrealizadas/<id>')
+def historialcitasmedicasrealizadas(id): 
+    functionary = Functionary.query.filter_by(id=id).first()
+    #MedicalAppointment = MedicalAppointmentHistory.query.filter_by(patient_id=id, state="Asistio" ).all()
+    MedicalAppointment = MedicalAppointmentHistory.query.filter(or_(MedicalAppointmentHistory.state == 'Asistio', MedicalAppointmentHistory.state == 'No Asistio'))
+
+    id = int(id)
+    appointments = []
+    patientList = []
+    for i in MedicalAppointment:
+        if(i.functionary_id == id):
+            appointments.append(i)
+            patient =  Patient.query.filter_by(id=i.patient_id).first()
+            patientList.append(patient.name + " " + patient.lastName)
+
+    for i, j in zip(appointments, patientList):
+        i.patient_id = j 
+
+    return render_template("historialCitasMedicasRealizadas.html", MedicalAppointment = appointments, functionary = functionary)
+
+
+@app.route('/medicamentosalmacenados/<id>')
+def medicamentosalmacenados(id): 
+    functionary = Functionary.query.filter_by(id=id).first()
+    medicines = Medicine.query.all()
+
+    return render_template("medicamentosAlmacenados.html", medicines = medicines, functionary = functionary) 
+
+
+@app.route('/editarmedicamento/<medicine_id>/<functionary_id>')
+def editarmedicamento(medicine_id, functionary_id): 
+    medicine = Medicine.query.filter_by(id=medicine_id).first()
+    functionary = Functionary.query.filter_by(id=functionary_id).first()
+
+    return render_template("editarMedicamento.html", medicine = medicine, functionary = functionary)
+
+
+@app.route('/guardar_editarmedicamento/<medicine_id>/<functionary_id>', methods=['POST'])
+def guardar_editarmedicamento(medicine_id, functionary_id): 
+    medicine = Medicine.query.filter_by(id=medicine_id).first()
+    functionary = Functionary.query.filter_by(id=functionary_id).first()
+    
+    if(medicine is not None):
+        if(functionary is not None):
+
+            uniqueCode = request.form['uniqueCode']
+            name = request.form['name']
+            supplier = request.form['supplier']
+            price = request.form['price']
+ 
+            medicine.uniqueCode  = uniqueCode
+            medicine.name  = name
+            medicine.supplier= supplier
+            medicine.price  = price
+
+            db.session.commit()
+
+            return redirect(url_for("medicamentosalmacenados", id = functionary.id)) 
+        else: 
+            return redirect(url_for("medicamentosalmacenados", id = functionary.id)) 
+    else:
+        return redirect(url_for("medicamentosalmacenados", id = functionary.id))
+
+
+@app.route('/eliminarmedicamento/<medicine_id>/<functionary_id>')
+def eliminarmedicamento(medicine_id, functionary_id): 
+    medicine = Medicine.query.filter_by(id=medicine_id).first()
+    functionary = Functionary.query.filter_by(id=functionary_id).first()
+    
+    db.session.delete(medicine)
+    db.session.commit()
+
+    return redirect(url_for("medicamentosalmacenados", id = functionary.id))
 
 '''
 A partir de este punto, las siguiente rutas estan funcionales para ingresar valores a las diferentes tablas creadas 
@@ -440,37 +549,6 @@ def crear_registromedicamentos():
     db.session.commit()
 
     return 'Registro del medicamento exitoso'
-
-
-#Ruta donde el medico ingresa si el paciente asistio o no a la cita medica y da una valoracion del paciente
-@app.route('/valoracioncitamedica')
-def valoracioncitamedica():
-    return render_template("valoracionCitaMedica.html")
-
-
-@app.route('/crear_valoracioncitamedica', methods=['POST'])
-def crear_valoracioncitamedica():
-    id_medicalAppointment = int(request.form['id'])
-    medicalAppointment = MedicalAppointmentHistory.query.filter_by(id=id_medicalAppointment).first()
-
-    if(medicalAppointment is not None and id_medicalAppointment == medicalAppointment.id):
-
-            registerType = ""
-            if(request.form["registerType"] == '1'):
-                registerType  = "Asistio"
-                medicalAppointment.state = registerType
-            elif(request.form["registerType"] == '2'):
-                registerType  = "No Asistio"
-                medicalAppointment.state = registerType
-
-            observation = request.form['observation']
-            medicalAppointment.observation= observation
-
-            db.session.commit()
-
-            return 'Registro de la valoración de cita médica exitoso'
-    else:  
-        return 'Error datos no válidos'  
 
 
 #Ruta para alamacenar los medicamentos que un paciente adquiere

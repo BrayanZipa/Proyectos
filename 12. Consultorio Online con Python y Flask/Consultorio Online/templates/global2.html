@@ -79,13 +79,16 @@
                             href="/perfilfuncionario/{{functionary.id}}">Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Citas médicas programadas</a>
+                        <a class="nav-link active" aria-current="page"
+                            href="/citasmedicasprogramadas/{{functionary.id}}">Citas médicas programadas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Historial de citas médicas</a>
+                        <a class="nav-link active" aria-current="page"
+                            href="/historialcitasmedicasrealizadas/{{functionary.id}}">Historial de citas médicas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inventario de medicamentos</a>
+                        <a class="nav-link" href="/medicamentosalmacenados/{{functionary.id}}">Inventario de
+                            medicamentos</a>
                     </li>
                 </ul>
             </div>
@@ -97,6 +100,49 @@
         {% endblock %}
     </div>
 
+    <script>
+        const boton1 = document.querySelectorAll('.btn-update2')
+        if (boton1) {
+            const arreglo = Array.from(boton1);
+            arreglo.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    alert("Perfil actualizado con éxito");
+                });
+            });
+        }
+
+        const boton2 = document.querySelectorAll('.btn-update3')
+        if (boton2) {
+            const arreglo = Array.from(boton2);
+            arreglo.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    alert("Medicamento actualizado con éxito");
+                });
+            });
+        }
+
+        const boton3 = document.querySelectorAll('.btn-update4')
+        if (boton3) {
+            const arreglo = Array.from(boton3);
+            arreglo.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    alert("Valoración agregada con éxito");
+                });
+            });
+        }
+
+        const boton4 = document.querySelectorAll('.btn-delete')
+        if (boton4) {
+            const arreglo = Array.from(boton4);
+            arreglo.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    if (!confirm("¿Desea eliminar el medicamento seleccionado?")) {
+                        e.preventDefault();
+                    }
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>

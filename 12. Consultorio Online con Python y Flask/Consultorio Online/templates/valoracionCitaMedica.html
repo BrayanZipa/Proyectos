@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valoración cita médica</title>
-</head>
-<body>
-    <h1>Valoración médica</h1>
-    <form class="formulario" action="{{url_for('crear_valoracioncitamedica')}}" method="POST">
-		<div class="contenedor">
+{% extends 'global2.html' %}
 
-            <div class="input-contenedor">		
-				<input type="text" name="id"  placeholder="id cita médica"  requerid="">
-			</div>
+    {% block body %}
 
-            <div class="input-contenedor">
-                <label>Tipo de registro</label>	
-                <select name="registerType">
-                    <option value="1">Asistio</option>
-                    <option value="2">No Asistio</option>
-                </select>		
+    <h3>Valoración médica</h3>
+    <div id="contenedor"> 
+        <form class="formulario" action="/guardar_valoracioncitamedica/{{medicalAppointment.id}}/{{functionary.id}}" method="POST">
+
+            <div class="form-group">
+                <label>Tipo de registro</label>
+                <select class="form-control" name="registerType">
+                    <option value="Asistio">Asistio</option>
+                    <option value="No Asistio">No Asistio</option>
+                </select>
             </div>
 
-            <div class="input-contenedor">		
-                <textarea name="observation" cols="30" rows="10" placeholder="Observación" requerid=""></textarea>
-			</div>
- 
-			<input type="submit" value="Registrar valoración">
+            <div class="form-group">
+                <textarea class="form-control" name="observation" cols="30" rows="10" placeholder="Observación" requerid=""></textarea>
+            </div>
 
-		</div>
-	</form>
-</body>
-</html>
+            <div id="boton" class="form-group">
+            <input class="btn btn-dark btn-update4" type="submit" value="Registrar valoración">
+            </div>
+        </form>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'global2.html' %}
+
+    {% block body %}
+
+    <h3>Actualizar medicamento</h3>
+	<div id="contenedor"> 
+    	<form class="formulario" action="/guardar_editarmedicamento/{{medicine.id}}/{{functionary.id}}" method="POST">
+
+			<div class="form-group">
+                <input class="form-control" type="text" value="{{medicine.uniqueCode}}" name="uniqueCode" placeholder="Código único" requerid="">	
+            </div>
+
+			<div class="form-group">
+				<input class="form-control" type="text" value="{{medicine.name}}" name="name"  placeholder="Nombre medicamento" requerid="">
+			</div>
+            
+            <div class="form-group">
+                <input class="form-control" type="text" value="{{medicine.supplier}}" name="supplier" placeholder="Proveedor" requerid="">	
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="text" value="{{medicine.price}}" name="price" placeholder="Precio unitario" requerid="" pattern="[0-9]+">	
+            </div>
+
+			<div id="boton" class="form-group">
+				<input class="btn btn-dark btn-update3" type="submit" value="Actualizar">
+			</div>
+		</form>
+	</div>
+
+    {% endblock %}

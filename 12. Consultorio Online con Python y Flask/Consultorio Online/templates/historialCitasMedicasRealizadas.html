@@ -1,0 +1,33 @@
+{% extends 'global2.html' %}
+
+    {% block body %}
+
+    <h3>Historial citas médicas</h3>
+    <div class="tablas">
+        <table class="table table-striped">
+            <thead class="cabecera">
+                <tr>
+                    <td>Fecha de solicitud</td>
+                    <td>Fecha de la cita</td>
+                    <td>Hora de la cita</td>
+                    <td>Paciente atendido</td>
+                    <td>Valoración realizada</td>
+                    <td>Estado</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in MedicalAppointment %}
+                <tr>
+                    <td>{{appointment.requestDate}}</td>
+                    <td>{{appointment.applicationDate}}</td>
+                    <td>{{appointment.applicationHour}}</td>
+                    <td>{{appointment.patient_id}}</td>
+                    <td>{{appointment.observation}}</td>
+                    <td>{{appointment.state}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% endblock %}
