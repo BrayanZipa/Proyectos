@@ -466,6 +466,30 @@ def historialcitasmedicasrealizadas(id):
     return render_template("historialCitasMedicasRealizadas.html", MedicalAppointment = appointments, functionary = functionary)
 
 
+#Ruta de registro de medicamentos nuevos
+@app.route('/registromedicamentos/<id>')
+def registromedicamentos(id):
+    functionary = Functionary.query.filter_by(id=id).first()
+
+    return render_template("registroMedicamentos.html", functionary = functionary)
+
+
+@app.route('/crear_registromedicamentos/<functionary_id>', methods=['POST'])
+def crear_registromedicamentos(functionary_id):
+    functionary = Functionary.query.filter_by(id=functionary_id).first()
+
+    uniqueCode = request.form['uniqueCode']
+    name = request.form['name']
+    supplier = request.form['supplier']
+    price = request.form['price']
+
+    medicine = Medicine(uniqueCode, name, supplier, price)
+    db.session.add(medicine)
+    db.session.commit()
+
+    return redirect(url_for("registromedicamentos", id = functionary.id))
+
+
 @app.route('/medicamentosalmacenados/<id>')
 def medicamentosalmacenados(id): 
     functionary = Functionary.query.filter_by(id=id).first()
@@ -519,39 +543,52 @@ def eliminarmedicamento(medicine_id, functionary_id):
 
     return redirect(url_for("medicamentosalmacenados", id = functionary.id))
 
-'''
-A partir de este punto, las siguiente rutas estan funcionales para ingresar valores a las diferentes tablas creadas 
-en la base de datos, pero son rutas que no estan funcionales en la interfaz gráfica y tampoco tienen un menú de 
-desplazamiento para navegar entre páginas. 
 
-'''
+#Ruta para mantener el control del inventario de las medicinas que entran y salen 
+@app.route('/registrocontrolmedicinas/<id>')
+def registrocontrolmedicinas(id):
+    functionary = Functionary.query.filter_by(id=id).first()
 
-
-
+    return render_template("registroControlMedicinas.html", functionary = functionary)
 
 
-#Ruta de registro de medicamentos nuevos
-@app.route('/registromedicamentos')
-def registromedicamentos():
-    return render_template("registroMedicamentos.html")
+@app.route('/crear_registrocontrolmedicinas/<functionary_id>', methods=['POST'])
+def crear_registrocontrolmedicinas(functionary_id):
+    functionary = Functionary.query.filter_by(id=functionary_id).first()
+
+    medicine = request.form['codigoMedicina']
+    medicine2 = Medicine.query.filter_by(uniqueCode=medicine).first()
+
+    if(medicine2 is not None and medicine == medicine2.uniqueCode): 
+            medicine_id = medicine2.id
+            functionary_id = functionary.id
+
+            quantity = request.form["quantity"]  
+
+            registerType = ""
+            if(request.form["registerType"] == '1'):
+                registerType  = "Entrada"
+                medicine2.quantity += int(quantity)
+
+            elif(request.form["registerType"] == '2'):
+                registerType  = "Salida"
+                medicine2.quantity -= int(quantity)
+ 
+            registerDate = date.today()
+            hour = time.strftime("%H:%M:%S")
+
+            medicineControl = MedicineControl(medicine_id, functionary_id, registerType, quantity, registerDate, hour)
+
+            db.session.add(medicineControl)
+            db.session.commit()
+
+            return redirect(url_for("registrocontrolmedicinas", id = functionary.id))
+    else:  
+      return redirect(url_for("registrocontrolmedicinas", id = functionary.id))
 
 
-@app.route('/crear_registromedicamentos', methods=['POST'])
-def crear_registromedicamentos():
-    uniqueCode = request.form['uniqueCode']
-    name = request.form['name']
-    supplier = request.form['supplier']
-    price = request.form['price']
 
-    medicine = Medicine(uniqueCode, name, supplier, price)
-
-    db.session.add(medicine)
-    db.session.commit()
-
-    return 'Registro del medicamento exitoso'
-
-
-#Ruta para alamacenar los medicamentos que un paciente adquiere
+#Ruta para alamacenar los medicamentos que un paciente adquiere 
 @app.route('/registroformulacionmedicinas')
 def registroformulacionmedicinas():
     return render_template("registroFormulacionMedicinas.html")
@@ -581,50 +618,6 @@ def crear_registroformulacionmedicinas():
     else:  
       return 'Error datos no válidos' 
 
-
-#Ruta para mantener el control del inventario de las medicinas que entran y salen 
-@app.route('/registrocontrolmedicinas')
-def registrocontrolmedicinas():
-    return render_template("registroControlMedicinas.html")
-
-
-@app.route('/crear_registrocontrolmedicinas', methods=['POST'])
-def crear_registrocontrolmedicinas():
-    medicine = request.form['codigoMedicina']
-    medicine2 = Medicine.query.filter_by(uniqueCode=medicine).first()
-
-    functionary = request.form['identificacion']
-    functionary2 = Functionary.query.filter_by(identification=functionary).first()
-
-    if(medicine2 is not None and medicine == medicine2.uniqueCode):
-        if(functionary2 is not None and functionary == functionary2.identification):  
-            medicine_id = medicine2.id
-            functionary_id = functionary2.id
-
-            quantity = request.form["quantity"]  
-
-            registerType = ""
-            if(request.form["registerType"] == '1'):
-                registerType  = "Entrada"
-                medicine2.quantity += int(quantity)
-
-            elif(request.form["registerType"] == '2'):
-                registerType  = "Salida"
-                medicine2.quantity -= int(quantity)
- 
-            registerDate = date.today()
-            hour = time.strftime("%H:%M:%S")
-
-            medicineControl = MedicineControl(medicine_id, functionary_id, registerType, quantity, registerDate, hour)
-
-            db.session.add(medicineControl)
-            db.session.commit()
-
-            return 'Registro formulación de medicina exitoso'
-        else:  
-            return 'Error datos no válidos'  
-    else:  
-      return 'Error datos no válidos' 
 
 
 if __name__ == "__main__":

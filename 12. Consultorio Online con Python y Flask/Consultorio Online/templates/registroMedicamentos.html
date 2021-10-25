@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'global2.html' %}
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Registro medicamentos</title>
-</head>
+  	{% block body %}
 
-<body>
-	<h3>Registro Medicamento</h3>
+	<h3>Registro de medicamentos</h3>
 	<div id="contenedor">
-		<form class="formulario" action="/guardar_editarmedicamento/{{medicine.id}}/{{functionary.id}}" method="POST">
+		<form class="formulario" action="/crear_registromedicamentos/{{functionary.id}}" method="POST">
 
 			<div class="form-group">
 				<input class="form-control" type="text" name="uniqueCode" placeholder="Código único" requerid="">
@@ -31,10 +24,9 @@
 			</div>
 
 			<div id="boton" class="form-group">
-				<input class="btn btn-dark btn-update3" type="submit" value="Actualizar">
+				<input class="btn btn-dark btn-update5" type="submit" value="Registrar medicamento">
 			</div>
 		</form>
 	</div>
-</body>
 
-</html>
+	{% endblock %}
