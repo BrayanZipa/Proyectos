@@ -6,7 +6,7 @@ import time
 
 app = Flask(__name__)
 # 'postgresql://<usuario>:<contraseña>@<direccion de la db>:<puerto>/<nombre de la db>
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/consultorionline'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/consultoriomedico'
 #base de datos en heroku
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://eagmwdhdcsejuj:e5e637b464c34058e57f956ea81b03a99e2da2c3ccf91a190398dedea04c3d0d@ec2-3-209-65-193.compute-1.amazonaws.com:5432/d9f84tefsoiohq'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -15,7 +15,7 @@ app.secret_key = 'some-secret-key'
 db = SQLAlchemy(app)
 
 # Importar los modelos
-from models import Patient, Functionary, Medicine, MedicalAppointmentHistory, FormulatedMedicine, MedicineControl
+from models import Patient, Functionary, Medicine, MedicalAppointmentHistory, MedicineControl
 
 # Crear el esquema de la DB
 db.create_all()
@@ -585,38 +585,6 @@ def crear_registrocontrolmedicinas(functionary_id):
             return redirect(url_for("registrocontrolmedicinas", id = functionary.id))
     else:  
       return redirect(url_for("registrocontrolmedicinas", id = functionary.id))
-
-
-
-#Ruta para alamacenar los medicamentos que un paciente adquiere 
-@app.route('/registroformulacionmedicinas')
-def registroformulacionmedicinas():
-    return render_template("registroFormulacionMedicinas.html")
-
-
-@app.route('/crear_registroformulacionmedicinas', methods=['POST'])
-def crear_registroformulacionmedicinas():
-    patient = request.form['documento']
-    patient2 = Patient.query.filter_by(identification=patient).first()
-
-    medicine = request.form['codigoMedicina']
-    medicine2 = Medicine.query.filter_by(uniqueCode=medicine).first()
-
-    if(patient2 is not None and patient == patient2.identification):
-        if(medicine2 is not None and medicine == medicine2.uniqueCode):
-            patient_id = patient2.id
-            medicine_id = medicine2.id
-
-            formulatedMedicine = FormulatedMedicine(patient_id, medicine_id)
-
-            db.session.add(formulatedMedicine)
-            db.session.commit()
-
-            return 'Registro formulación de medicina exitoso'
-        else:  
-            return 'Error datos no válidos'  
-    else:  
-      return 'Error datos no válidos' 
 
 
 

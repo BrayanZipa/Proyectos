@@ -122,3 +122,9 @@ Desarrollo de una página web con Python y la librería Flask, este se desarroll
 ![Consulta citas médicas reservadas](Imagenes/12.5.PNG)
 
 ![Historial citas médicas](Imagenes/12.6.PNG)
+
+![Historial citas médicas](Imagenes/12.7.PNG)
+
+![Historial citas médicas](Imagenes/12.8.PNG)
+
+![Historial citas médicas](Imagenes/12.9.PNG)
