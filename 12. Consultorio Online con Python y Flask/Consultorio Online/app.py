@@ -8,7 +8,7 @@ app = Flask(__name__)
 # 'postgresql://<usuario>:<contraseña>@<direccion de la db>:<puerto>/<nombre de la db>
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/consultoriomedico'
 #base de datos en heroku
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://eagmwdhdcsejuj:e5e637b464c34058e57f956ea81b03a99e2da2c3ccf91a190398dedea04c3d0d@ec2-3-209-65-193.compute-1.amazonaws.com:5432/d9f84tefsoiohq'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://fikotavwnpadwn:73e8a36d01c1c54bfafd28aa6154f051a029dee13f48760935b284769dd8df0d@ec2-3-221-140-141.compute-1.amazonaws.com:5432/dc6kidufoa4g8r'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'some-secret-key'
 
@@ -36,6 +36,12 @@ def pacientesignup():
 @app.route('/funcionariosignup')
 def funcionariosignup():
     return render_template("signUpFuncionario.html")
+
+#Ruta de salida de la aplicación de los usuarios
+@app.route('/usuariologout')
+def usuariologout():
+    return redirect(url_for("index"))
+
 
 
 @app.route('/ingresousuariopaciente', methods=['POST'])

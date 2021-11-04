@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\zipaf\OneDrive\Documentos\UIS\Proyecto_ConsultorioOnline\env"
+VIRTUAL_ENV="C:\Users\Zipaf\OneDrive\Documentos\UIS\Proyecto_ConsultoriOnline\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

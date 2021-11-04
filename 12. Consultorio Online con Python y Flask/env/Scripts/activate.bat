@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\zipaf\OneDrive\Documentos\UIS\Proyecto_ConsultorioOnline\env
+set VIRTUAL_ENV=C:\Users\Zipaf\OneDrive\Documentos\UIS\Proyecto_ConsultoriOnline\env
 
 if not defined PROMPT set PROMPT=$P$G
 

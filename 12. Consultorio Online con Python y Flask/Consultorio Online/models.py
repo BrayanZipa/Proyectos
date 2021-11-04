@@ -120,26 +120,12 @@ class MedicalAppointmentHistory(db.Model):
         self.applicationDate = applicationDate
         self.applicationHour = applicationHour
 
-
-# Tabla FormulatedMedicine
-class FormulatedMedicine(db.Model):
-    __tablename__ = 'FormulatedMedicine'    
-
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    patient_id = db.Column(db.ForeignKey("Patient.id"))
-    medicine_id = db.Column(db.ForeignKey("Medicine.id"))
-
-    def __init__(self, patient_id, medicine_id):
-        self.patient_id = patient_id
-        self.medicine_id = medicine_id
-
-
 # Tabla MedicineControl
 class MedicineControl(db.Model):
     __tablename__ = 'MedicineControl'    
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    medicine_id = db.Column(db.ForeignKey("Medicine.id"))
+    medicine_id = db.Column(db.ForeignKey("Medicine.id", ondelete='cascade', onupdate='cascade'))
     functionary_id = db.Column(db.ForeignKey("Functionary.id"))
     registerType = db.Column(db.String)
     quantity = db.Column(db.Integer)
