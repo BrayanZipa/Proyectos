@@ -113,12 +113,12 @@ Tener en cuenta que para ingresar funcionarios se debe usar la ruta /registrofun
 El proyecto se encuentra subido a internet por medio de HEROKU y se puede acceder mediante el siguiente enlace https://appconsultorionline.herokuapp.com/
 
 Para ingresar como paciente puede usar el siguiente usuario o bien crear una cuenta
-    Usuario: Luis@gmail.com
-    Contraseña: 123456789
+    -Usuario: Luis@gmail.com
+    -Contraseña: 123456789
 
 Para ingresar como funcionario
-    Usuario: duarte.brayan@misalud.com
-    Contraseña: brayan123456
+    -Usuario: duarte.brayan@misalud.com
+    -Contraseña: brayan123456
 
 ![Login de la página](Imagenes/12.PNG)
 
