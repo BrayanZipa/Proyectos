@@ -108,6 +108,17 @@ Desarrollo de una página web con PHP, HTML5 y la herramienta XAMPP que actúa c
 ------------
 ### 12. Consultorio médico online con Python y Flask
 Desarrollo de una página web con Python y la librería Flask, este se desarrollo en un entorno virtual en el que se desacargaron las dependecias. El programa es un consultorio online que permite que los usuarios de una EPS se puedan registrar y solicitar citas médicas de medicina general, estas citas además se pueden gestionar por medio del modelo CRUD, se puede visualizar la información, actualizar y eliminar. Para almacenar dicha información se realizó una conexión a una base de datos en PostgreSQL por medio del ORM SQLAlchemy.
+Tener en cuenta que para ingresar funcionarios se debe usar la ruta /registrofuncionarios
+
+El proyecto se encuentra subido a internet por medio de HEROKU y se puede acceder mediante el siguiente enlace https://appconsultorionline.herokuapp.com/
+
+Para ingresar como paciente puede usar el siguiente usuario o bien crear una cuenta
+    Usuario: Luis@gmail.com
+    Contraseña: 123456789
+
+Para ingresar como funcionario
+    Usuario: duarte.brayan@misalud.com
+    Contraseña: brayan123456
 
 ![Login de la página](Imagenes/12.PNG)
 
