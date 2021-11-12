@@ -128,3 +128,15 @@ Desarrollo de una página web con Python y la librería Flask, este se desarroll
 ![Historial citas médicas](Imagenes/12.8.PNG)
 
 ![Historial citas médicas](Imagenes/12.9.PNG)
+
+------------
+### 13. Conexión a base de datos con PHP y uso de Bootstrap
+Desarrollo de una página web con PHP, HTML, CSS y uso de Bootstrap para complemnetar los estilos, la página es un CRUD básico en el que se puede registrar, actualizar, eliminar y consultar individualmente o grupalmente los datos de una base de datos de usuarios, se utiliza XAMPP como herramienta para emular el servidor y MySQL Workbench como gestor de base de datos para realizar la conexión y mantener la persistencia de los datos.
+
+![Página inicial](Imagenes/13.PNG)
+
+![Busqueda individual](Imagenes/13.1.PNG)
+
+![Formulario de ingreso](Imagenes/13.2.PNG)
+
+![Formulario de actualización](Imagenes/13.3.PNG)
