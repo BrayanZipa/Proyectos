@@ -6,5 +6,5 @@
     mysqli_query($con,$sqlConsulta);
     $_SESSION['message']='Registro eliminado';
     $_SESSION['color']='danger';
-    header("location:inde.php");
+    header("location:index.php");
 ?>
